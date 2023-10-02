@@ -1,35 +1,16 @@
-import MobileHero from '../assets/home/mobile/image-header.jpg'
-import HeadphoneThumbnail from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
-import SpeakerThumbnail from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
-import EarphoneThumbnail from '../assets/shared/desktop/image-category-thumbnail-earphones.png';
-import Arrow from '../assets/shared/desktop/icon-arrow-right.svg';
-import ImageSpeaker from '../assets/home/desktop/image-speaker-zx9.png';
-import Circles from '../assets/home/desktop/pattern-circles.svg';
-import ImageSpeaker2 from '../assets/home/mobile/image-speaker-zx7.jpg';
-import Earphones from '../assets/home/mobile/image-earphones-yx1.jpg';
-import Testimonials from '../assets/shared/mobile/image-best-gear.jpg';
+import MobileHero from '../public/home/mobile/image-header.jpg'
+import Arrow from '../public/shared/desktop/icon-arrow-right.svg';
+import ImageSpeaker from '../public/home/desktop/image-speaker-zx9.png';
+import Circles from '../public/home/desktop/pattern-circles.svg';
+import ImageSpeaker2 from '../public/home/mobile/image-speaker-zx7.jpg';
+import Earphones from '../public/home/mobile/image-earphones-yx1.jpg';
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
-import Link from 'next/link'
+import Link from 'next/link';
+import Links from '@/components/Links'
 import MobileFooter from '@/components/MobileFooter';
+import Testimonial from '@/components/Testimonials';
 
-const links = [
-  {
-    name: 'HEADPHONES',
-    link:'',
-    image:HeadphoneThumbnail
-  },
-  {
-    name: 'SPEAKERS',
-    link:'',
-    image:SpeakerThumbnail
-  },
-  {
-    name: 'EARPHONES',
-    link:'',
-    image:EarphoneThumbnail
-  },
-]
 
 export default function Home() {
   return (
@@ -51,7 +32,7 @@ export default function Home() {
         </div>
      </div>
 
-     <HomeOne />
+     <Links />
 
      <div className='mt-10'>
       <div className='flex flex-col justify-center items-center gap-10'>
@@ -94,23 +75,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div className='mt-10'>
-        <div className='flex justify-center items-center flex-col gap-5'>
-          <Image src={Testimonials} alt='testimonials' className='w-80 rounded-lg'/>
-          <div className='mt-10 flex flex-col justify-center items-center text-center px-4'>
-            <p className='text-3xl tracking-wide font-semibold'>BRINGING YOU THE 
-            <span className='text-caramel'> BEST</span> AUDIO GEAR
-            </p>
-            <p className='mt-6 opacity-60'>
-              Located at the heart of New York City, Audiophile is the premier store for high 
-              end headphones, earphones, speakers, and audio accessories. We have a large showroom 
-              and luxury demonstration rooms available for you to browse and experience a wide range of our products. 
-              Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Testimonial />
       </div>
      </div>
      <MobileFooter />
@@ -118,24 +83,3 @@ export default function Home() {
   )
 }
 
-function HomeOne(){
-  return (
-    <div className='mt-20'>
-      <div className='flex justify-center items-center flex-col gap-20'>
-      {links.map((data,key) => (
-        <div key={key}>
-            <div className='bg-seasalt w-80 h-48 rounded-lg text-center relative'>
-              <Image src={data.image} className='w-40 h-40 absolute -top-16 left-20' alt=''/>
-              <h4 className='pt-20 font-manrope font-medium text-lg tracking-wider'>{data.name}</h4>
-              <Link href='/audiophile-react/headphones' 
-              className='opacity-50 text-sm flex items-center justify-center gap-2 pt-4'>
-                <p className='hover:text-caramel transition ease-in-out'>SHOP</p> 
-                <Image src={Arrow} className='left-3' alt='' />
-              </Link>
-            </div>
-          </div>
-      ))}
-    </div>
-    </div>
-  )
-}

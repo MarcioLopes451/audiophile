@@ -1,8 +1,8 @@
 import React from 'react'
-import Logo from '../assets/shared/desktop/logo.svg';
-import Facebook from '../assets/shared/desktop/icon-facebook.svg';
-import Instagram from '../assets/shared/desktop/icon-instagram.svg';
-import Twitter from '../assets/shared/desktop/icon-twitter.svg';
+import Logo from '../public/shared/desktop/logo.svg';
+import Facebook from '../public/shared/desktop/icon-facebook.svg';
+import Instagram from '../public/shared/desktop/icon-instagram.svg';
+import Twitter from '../public/shared/desktop/icon-twitter.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
