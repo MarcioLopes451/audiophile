@@ -1,5 +1,4 @@
 import MobileHero from '../public/home/mobile/image-header.jpg'
-import Arrow from '../public/shared/desktop/icon-arrow-right.svg';
 import ImageSpeaker from '../public/home/desktop/image-speaker-zx9.png';
 import Circles from '../public/home/desktop/pattern-circles.svg';
 import ImageSpeaker2 from '../public/home/mobile/image-speaker-zx7.jpg';
