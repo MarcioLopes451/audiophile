@@ -2,6 +2,7 @@ import './globals.css'
 import { Manrope } from 'next/font/google'
 import { ShopContextProvider } from '@/context/ShopContext'
 
+
 const manrope = Manrope ({
    subsets: ['latin'],
    weight:['200','300','400','500','600','700','800']

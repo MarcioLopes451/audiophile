@@ -12,6 +12,21 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'manrope':['Manrope', 'sans-serif'],
+      },
+      colors: {
+        'caramel': '#D87D4A',
+        'night': '#101010',
+        'anti-flash-white': '#F1F1F1',
+        'seasalt': '#FAFAFA',
+        'tangerine': '#fbaf85',
+        'white': '#FFFFFF',
+        'black': '#000000',
+        'background':'#000000bf',
+        'asparagus':'#589F40',
+        'gray':'#4C4C4C'
+      },
     },
   },
   plugins: [],
