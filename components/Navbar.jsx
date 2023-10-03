@@ -6,23 +6,31 @@ import Cart from '../public/shared/desktop/icon-cart.svg';
 import Mobile from '../public/shared/tablet/icon-hamburger.svg';
 import MobileNav from './MobileNav';
 import Backdrop from './Backdrop';
+import ShoppingCart from './cart/ShoppingCart';
 
 export default function Navbar() {
   const [state, setState] = useState(false);
+  const [state1, setState1] = useState(false);
 
   function handleClick() {
     setState(!state)
   }
 
+  function handleClick1() {
+    setState1(!state1)
+  }
+
   return (
     <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
         <div className='flex items-center pt-9 justify-evenly gap-10'>
-        <Image src={Mobile} alt='.' onClick={handleClick}/>
-        <Image src={Logo} alt='.'/>
-        <Image src={Cart} alt=';' />
+        <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
+        <Image src={Logo} alt='logo'/>
+        <Image src={Cart} alt='cart' onClick={handleClick1}/>
         </div>
         {state && <MobileNav isOpen={state} onClose={handleClick}/>}
         {state && <Backdrop isOpen={state} onClose={handleClick}/>}
+        {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1}/>}
+        {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
     </div>
   )
 }
