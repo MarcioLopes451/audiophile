@@ -30,13 +30,18 @@ function Products(){
             {data.filter(data => data.category === "headphones").map((data,index) => (
                 <div key={index}>
                     <div className='flex justify-center items-center'>
-                    <Image src={data.image.mobile} alt='headphones' width={350} height={400} className='rounded-lg'/>
+                    <Image src={data.image.mobile} 
+                    alt='headphones' 
+                    width={350} 
+                    height={400}
+                    priority={true}
+                    className='rounded-lg w-auto h-auto'/>
                     </div>
                  <div className="flex justify-center items-center flex-col mt-10">
                     <h1>{data.new ? <p className="tracking-[0.8rem] text-caramel text-sm">NEW PRODUCT</p> : null}</h1>
                    <h1 className="text-4xl tracking-wider mt-8 font-medium text-center">{data.name}</h1>
                    <p className="mt-8 opacity-60 text-center px-3">{data.description}</p>
-                   <Link key={data.id} href={`/${data.slug}`}>
+                   <Link key={data.id} href={`${data.slug}`}>
                     <button className='bg-caramel mt-6 w-44 h-14 text-white tracking-wide text-center hover:bg-tangerine transition ease-in-out'>
                 SEE PRODUCT
             </button>
@@ -48,3 +53,4 @@ function Products(){
     </div>
     )
 }
+{/*category/${data.category}/${data.slug} */}
