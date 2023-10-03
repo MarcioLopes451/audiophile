@@ -7,7 +7,6 @@ import Image from 'next/image';
 export default function CartItem(props) {
     const {addToCart, cartItems,removeFromCart} = useContext(ShopContext);
     
-
     return (
         <div>
             <div className='flex justify-between items-center mx-5 mt-5'>

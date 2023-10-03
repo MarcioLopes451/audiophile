@@ -37,7 +37,7 @@ export default function ShoppingCart({onClose}) {
                 <p className='font-semibold'>${tot.toLocaleString()}</p>
             </div>
             <div className='flex justify-center my-7'>
-            <Link href='/audiophile-react/complete' className='w-[271px] bg-caramel text-white text-center py-2 hover:bg-tangerine transition ease-in-out'
+            <Link href='/checkout' className='w-[271px] bg-caramel text-white text-center py-2 hover:bg-tangerine transition ease-in-out'
              onClick={onClose} >
                 CONTINUE & PAY
             </Link>
