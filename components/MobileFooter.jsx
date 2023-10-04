@@ -13,9 +13,9 @@ export default function MobileFooter() {
             <Image src={Logo} alt='logo' className='pt-10'/>
             <div className='flex justify-center items-center flex-col gap-5 mt-5 text-white font-semibold md:flex-row'>
                 <Link href='/'>HOME</Link>
-                <Link href='/'>HEADPHONES</Link>
-                <Link href='/'>SPEAKERS</Link>
-                <Link href='/'>EARPHONES</Link>
+                <Link href='/headphones'>HEADPHONES</Link>
+                <Link href='/speakers'>SPEAKERS</Link>
+                <Link href='/earphones'>EARPHONES</Link>
             </div>
             <div className='flex justify-center items-center flex-col gap-5 mt-5 text-white font-semibold md:items-start'>
                 <p className='text-white opacity-50 px-5 text-center font-normal md:px-0 md:text-left'> 
