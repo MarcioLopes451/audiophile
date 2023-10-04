@@ -25,7 +25,7 @@ const links = [
 
 export default function Links(){
     return (
-      <div className='mt-20'>
+      <div className='mt-40'>
         <div className='flex justify-center items-center flex-col gap-20 md:flex-row md:gap-2'>
         {links.map((data,key) => (
           <div key={key}>

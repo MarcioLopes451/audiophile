@@ -40,7 +40,7 @@ export default function ProductNav() {
   function changeNavbar(){
     if(width < breakPoint){
       return (
-        <div className='w-full h-24 border-b border-white border-opacity-10'>
+        <div className='w-full h-24 border-b border-white border-opacity-10 bg-black'>
         <div className='flex items-center pt-9 justify-evenly gap-10'>
           <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
           <Link href='/'>
@@ -56,7 +56,7 @@ export default function ProductNav() {
       )
     } else if(width >= breakPoint && width < large){
       return (
-        <div className='w-full h-24 border-b border-white border-opacity-10'>
+        <div className='w-full h-24 border-b border-white border-opacity-10 bg-black'>
           <div className='flex justify-between items-center px-[39px] pt-9'>
             <div className='flex items-center gap-11'>
             <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>

@@ -15,9 +15,9 @@ export default function Complete() {
     const grandTotal = tot + shipping + vat;
   
   return (
-    <div className='bg-white'>
-        <div className=''>
-        <Image src={Finished} className='mt-11' alt=''/>
+    <div className='mt-5 px-6'>
+        <div>
+        <Image src={Finished} className='mt-11' alt='finished'/>
             <h1 className='font-semibold mt-8 text-3xl'>THANK YOU FOR YOUR ORDER</h1>
             <p className='opacity-50 mt-3'>You will receive an email confirmation shortly.</p>
             <div>
@@ -27,13 +27,13 @@ export default function Complete() {
                     }
                 })}
             </div>
-            <div className='bg-night mx-6'>
-                <p className='text-white mt-11 opacity-50 text-lg'>GRAND TOTAL</p>
+            <div className='bg-night md:w-[350px]'>
+                <p className='text-white opacity-50 text-lg'>GRAND TOTAL</p>
                 <div>
                 <p className='mt-2 text-white'>${grandTotal.toLocaleString()}</p>
                 </div>
             </div>
-            <div className='text-center my-7'>
+            <div className='text-center my-7 md:text-left'>
                 <Link href='/'>
                     <button className='bg-caramel text-white text-center py-2 w-80 h-10'>
                         BACK TO HOME

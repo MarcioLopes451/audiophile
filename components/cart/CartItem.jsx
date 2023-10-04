@@ -15,7 +15,7 @@ export default function CartItem(props) {
             width={64} 
             height={64}
             priority={true}
-            className='rounded-lg' 
+            className='rounded-lg w-auto h-auto' 
             alt='image'
             />
             <div>
@@ -24,11 +24,11 @@ export default function CartItem(props) {
             </div>
             </div>
             <div>
-            <button className="bg-anti-flash-white w-24 h-8 flex justify-around items-center">
+            <div className="bg-anti-flash-white w-24 h-8 flex justify-around items-center">
             <button onClick={() => removeFromCart(props.data.id)}>-</button>
             <p>{cartItems[props.data.id]}</p>
             <button onClick={() => addToCart(props.data.id)}>+</button>
-            </button>
+            </div>
             </div>
         </div>
         </div>

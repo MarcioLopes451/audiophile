@@ -19,8 +19,8 @@ export default function ShoppingCart({onClose}) {
     const tot = totalCart();
 
     return (
-        <div className='flex justify-center items-center mt-14'>
-            <div className='bg-white w-[327px] rounded-lg z-50'>
+        <div className='flex justify-center items-center mt-14 md:justify-end md:px-6'>
+            <div className='bg-white w-[327px] rounded-lg z-50 md:w-[377px]'>
             <div className='flex items-center justify-between px-6 pt-6'>
                 <h2 className='font-semibold tracking-widest'>CART</h2>
                 <p onClick={() => removeFromCart} className='font-manrope underline opacity-50'>Remove All</p>

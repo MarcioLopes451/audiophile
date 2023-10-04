@@ -7,7 +7,7 @@ export default function Order(props) {
     const {cartItems} = useContext(ShopContext);
     return (
         <div >
-            <div className=' bg-anti-flash-white' style={{width:'440px'}}>
+            <div className=' bg-anti-flash-white mt-5 md:w-[350px]'>
                 <div className='flex items-center gap-7'>
                 <Image src={props.data.image.mobile}
                 width={36}
