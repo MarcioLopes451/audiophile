@@ -1,7 +1,7 @@
 import React from 'react'
 import Complete from '@/components/orderComplete/Complete';
-import ProductNav from '@/components/ProductNav';
-import MobileFooter from '@/components/MobileFooter';
+import ProductNav from '@/components/navbar/ProductNav';
+import MobileFooter from '@/components/footer/MobileFooter';
 
 export default function Checkout() {
   return (

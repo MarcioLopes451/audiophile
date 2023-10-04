@@ -1,12 +1,13 @@
 'use client'
 import React, {useState, useEffect} from 'react'
+import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../public/shared/desktop/logo.svg';
-import Cart from '../public/shared/desktop/icon-cart.svg';
-import Mobile from '../public/shared/tablet/icon-hamburger.svg';
+import Logo from '../../public/shared/desktop/logo.svg';
+import Cart from '../../public/shared/desktop/icon-cart.svg';
+import Mobile from '../../public/shared/tablet/icon-hamburger.svg';
 import MobileNav from './MobileNav';
-import Backdrop from './Backdrop';
-import ShoppingCart from './cart/ShoppingCart';
+import Backdrop from '../backdrop/Backdrop';
+import ShoppingCart from '../cart/ShoppingCart';
 
 export default function Navbar() {
   const [state, setState] = useState(false);
@@ -42,7 +43,9 @@ export default function Navbar() {
         <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
         <div className='flex items-center pt-9 justify-evenly gap-10'>
           <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
+          <Link href='/'>
           <Image src={Logo} alt='logo'/>
+          </Link>
           <Image src={Cart} alt='cart' onClick={handleClick1}/>
         </div>
         {state && <MobileNav isOpen={state} onClose={handleClick}/>}
@@ -56,8 +59,10 @@ export default function Navbar() {
         <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
           <div className='flex justify-between items-center px-[39px] pt-9'>
             <div className='flex items-center gap-11'>
-            <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
-            <Image src={Logo} alt='logo'/>
+          <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
+          <Link href='/'>
+          <Image src={Logo} alt='logo'/>
+          </Link>
             </div>
             <Image src={Cart} alt='cart' onClick={handleClick1}/>
           </div>

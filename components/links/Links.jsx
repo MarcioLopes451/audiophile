@@ -1,7 +1,7 @@
-import HeadphoneThumbnail from '../public/shared/desktop/image-category-thumbnail-headphones.png';
-import SpeakerThumbnail from '../public/shared/desktop/image-category-thumbnail-speakers.png';
-import EarphoneThumbnail from '../public/shared/desktop/image-category-thumbnail-earphones.png';
-import Arrow from '../public/shared/desktop/icon-arrow-right.svg';
+import HeadphoneThumbnail from '../../public/shared/desktop/image-category-thumbnail-headphones.png';
+import SpeakerThumbnail from '../../public/shared/desktop/image-category-thumbnail-speakers.png';
+import EarphoneThumbnail from '../../public/shared/desktop/image-category-thumbnail-earphones.png';
+import Arrow from '../../public/shared/desktop/icon-arrow-right.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 

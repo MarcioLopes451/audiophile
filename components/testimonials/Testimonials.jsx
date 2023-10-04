@@ -1,8 +1,8 @@
 'use client'
 import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
-import Testimonials from '../public/shared/mobile/image-best-gear.jpg';
-import TabletTestimonials from '../public/shared/tablet/image-best-gear.jpg';
+import Testimonials from '../../public/shared/mobile/image-best-gear.jpg';
+import TabletTestimonials from '../../public/shared/tablet/image-best-gear.jpg';
 
 export default function Testimonial() {
   const [width, setWidth] = useState(0)

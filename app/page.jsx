@@ -9,11 +9,11 @@ import TabletImageSpeaker2 from '../public/home/tablet/image-speaker-zx7.jpg';
 import Earphones from '../public/home/mobile/image-earphones-yx1.jpg';
 import TabletEarphones from '../public/home/tablet/image-earphones-yx1.jpg';
 import Image from 'next/image'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/navbar/Navbar'
 import Link from 'next/link';
-import Links from '@/components/Links'
-import MobileFooter from '@/components/MobileFooter';
-import Testimonial from '@/components/Testimonials';
+import Links from '@/components/links/Links'
+import MobileFooter from '@/components/footer/MobileFooter';
+import Testimonial from '@/components/testimonials/Testimonials';
 
 
 export default function Home() {
@@ -47,7 +47,7 @@ export default function Home() {
             <p className='mt-5 text-white opacity-60 font-light px-5 md:px-[200px]'>
                 Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
             </p>
-            <Link href='/'>
+            <Link href='/xx99-mark-two-headphones'>
             <button className='bg-caramel mt-7 w-40 h-12 text-white tracking-wide text-center hover:bg-tangerine transition ease-in-out'>
                 SEE PRODUCT
             </button>
