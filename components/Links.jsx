@@ -26,11 +26,11 @@ const links = [
 export default function HomeOne(){
     return (
       <div className='mt-20'>
-        <div className='flex justify-center items-center flex-col gap-20'>
+        <div className='flex justify-center items-center flex-col gap-20 md:flex-row md:gap-2'>
         {links.map((data,key) => (
           <div key={key}>
-              <div className='bg-seasalt w-80 h-48 rounded-lg text-center relative'>
-                <Image src={data.image} className='w-40 h-40 absolute -top-16 left-20' alt=''/>
+              <div className='bg-seasalt w-80 h-48 rounded-lg text-center relative md:w-[223px] md:h-[165px]'>
+                <Image src={data.image} className='w-40 h-40 absolute -top-16 left-20 md:left-8' alt=''/>
                 <h4 className='pt-20 font-manrope font-medium text-lg tracking-wider'>{data.name}</h4>
                 <Link href='/audiophile-react/headphones' 
                 className='opacity-50 text-sm flex items-center justify-center gap-2 pt-4'>

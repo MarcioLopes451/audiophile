@@ -1,8 +1,13 @@
-import MobileHero from '../public/home/mobile/image-header.jpg'
+'use client'
+import { useState, useEffect } from 'react';
+import MobileHero from '../public/home/mobile/image-header.jpg';
+import TabletHero from '../public/home/tablet/image-header.jpg';
 import ImageSpeaker from '../public/home/desktop/image-speaker-zx9.png';
 import Circles from '../public/home/desktop/pattern-circles.svg';
 import ImageSpeaker2 from '../public/home/mobile/image-speaker-zx7.jpg';
+import TabletImageSpeaker2 from '../public/home/tablet/image-speaker-zx7.jpg';
 import Earphones from '../public/home/mobile/image-earphones-yx1.jpg';
+import TabletEarphones from '../public/home/tablet/image-earphones-yx1.jpg';
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link';
@@ -12,15 +17,34 @@ import Testimonial from '@/components/Testimonials';
 
 
 export default function Home() {
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const breakPoint = 768;
+    const med = 1024;
+    const large = 1440
+
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }
+
+  useEffect(() => {
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
   return (
     <main>
       <Navbar />
       <div className='relative w-full'>
-        <Image src={MobileHero} alt='mobile hero'/>
+        { width < breakPoint ? <Image src={MobileHero} alt='mobile hero'/> : 
+         width >= breakPoint && width < large ? <Image src={TabletHero} alt='tablet hero' /> : null}
         <div className='absolute top-[13rem] left-2 text-center'>
         <h1 className='text-sm text-white opacity-50 tracking-[0.8rem] font-thin'>NEW PRODUCT</h1>
-            <h1 className='mt-5 text-white text-4xl font-semibold tracking-widest'>XX99 MARK II HEADPHONES</h1>
-            <p className='mt-5 text-white opacity-60 font-light px-5'>
+            <h1 className='mt-5 text-white text-4xl font-semibold tracking-widest md:text-[56px] md:leading-[60px]'>
+              XX99 MARK II HEADPHONES
+            </h1>
+            <p className='mt-5 text-white opacity-60 font-light px-5 md:px-[200px]'>
                 Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
             </p>
             <Link href='/'>
@@ -35,12 +59,14 @@ export default function Home() {
 
      <div className='mt-10'>
       <div className='flex flex-col justify-center items-center gap-10'>
-        <div className='bg-caramel w-80 flex justify-center items-center flex-col rounded-lg relative'>
+        <div className='bg-caramel w-80 flex justify-center items-center flex-col rounded-lg relative md:w-[689px]'>
           <Image src={ImageSpeaker} alt='speakers' className='w-44 mt-14'/>
-          <Image src={Circles} alt='circles' className='absolute top-0'/>
+          {/*<Image src={Circles} alt='circles' className='absolute top-0'/>*/}
           <div className='text-center my-10'>
-            <h1 className='text-white text-5xl tracking-wider font-semibold'>ZX9 SPEAKER</h1>
-            <p className='text-white opacity-70 mt-6 leading-6'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+            <h1 className='text-white text-5xl tracking-wider font-semibold md:text-[56px] md:px-44'>ZX9 SPEAKER</h1>
+            <p className='text-white opacity-70 mt-6 leading-6 md:px-40'>
+              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+            </p>
             <Link href='/zx9-speaker'>
               <button className='w-40 h-12 mt-9 text-white text-sm font-manrope bg-night hover:bg-gray transition ease-in-out'>
                 SEE PRODUCT
@@ -50,8 +76,9 @@ export default function Home() {
         </div>
 
         <div className='relative'>
-        <Image src={ImageSpeaker2} alt='speakers2' className='w-80 rounded-lg'/>
-        <div className='absolute text-black top-28 left-2'>
+        {width < breakPoint ? <Image src={ImageSpeaker2} alt='speakers2' className='w-80 rounded-lg'/> :
+         width >= breakPoint && width < large ? <Image src={TabletImageSpeaker2} alt='speakers' className='rounded-lg'/> : null}
+        <div className='absolute text-black top-28 left-2 md:left-[62px]'>
           <p className='text-3xl tracking-wider font-semibold'>ZX7 SPEAKER</p>
           <Link href='/zx7-speaker'>
             <button className='mt-9 w-40 h-10 text-black border-solid border-2 border-night hover:bg-night transition ease-in-out hover:text-white'>
@@ -61,10 +88,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <Image src={Earphones} alt='earphones' className='w-80 rounded-lg'/>
-        <div className='mt-5 bg-anti-flash-white rounded-lg'>
-          <div className='py-10 px-4'>
+      <div className='md:flex gap-3 items-center justify-center'>
+        {width < breakPoint ?<Image src={Earphones} alt='earphones' className='w-80 rounded-lg'/> :
+        width >= breakPoint && width < large ? <Image src={TabletEarphones} alt='speakers' className='rounded-lg w-[339px]'/> :null }
+        <div className='mt-5 bg-anti-flash-white rounded-lg md:h-[320px] md:mt-0 md:w-[339px]'>
+          <div className='py-10 px-4 md:pt-24'>
             <p className='font-manrope text-3xl tracking-wider'>YX1 EARPHONES</p>
             <Link href='/yx1-earphones'>
               <button className='mt-9 w-40 h-10 font-manrope text-black border-solid border-2 border-night hover:bg-night transition ease-in-out hover:text-white'>
