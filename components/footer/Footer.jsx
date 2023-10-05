@@ -6,7 +6,7 @@ import Twitter from '../../public/shared/desktop/icon-twitter.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function MobileFooter() {
+export default function Footer() {
   return (
     <div className='bg-black mt-20'>
         <div className='flex justify-center items-center flex-col gap-5 md:items-start md:px-[60px]'>

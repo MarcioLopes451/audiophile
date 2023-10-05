@@ -6,7 +6,7 @@ import data from '../../data/data.json';
 import ProductNav from '@/components/navbar/ProductNav';
 import Testimonial from '@/components/testimonials/Testimonials';
 import Links from '@/components/links/Links'
-import MobileFooter from '@/components/footer/MobileFooter';
+import MobileFooter from '@/components/footer/Footer';
 import { ShopContext } from '@/context/ShopContext';
 import Image from 'next/image';
 

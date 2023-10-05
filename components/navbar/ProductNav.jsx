@@ -72,6 +72,34 @@ export default function ProductNav() {
           {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
         </div>
       )
+    } else {
+      return (
+        <div className='w-full h-24 border-b border-white border-opacity-10 bg-black'>
+          <div className='flex justify-between items-center px-[160px] pt-9'>
+          <Link href='/'>
+          <Image src={Logo} alt='logo'/>
+          </Link>
+          <div className='flex text-white gap-6 text-[13px] font-semibold'>
+            <Link href='/'>
+              HOME
+            </Link>
+            <Link href='/headphones'>
+              HEADPHONES
+            </Link>
+            <Link href='/speakers'>
+              SPEAKERS
+            </Link>
+            <Link href='/earphones'>
+              EARPHONES
+            </Link>
+          </div>
+            <Image src={Cart} alt='cart' onClick={handleClick1}/>
+          </div>
+          {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1}/>}
+          {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
+        </div>
+
+      )
     }
   }
 

@@ -1,7 +1,7 @@
 'use client'
 import React, {useState, useEffect} from 'react'
 import ProductNav from '@/components/navbar/ProductNav'
-import MobileFooter from '@/components/footer/MobileFooter'
+import MobileFooter from '@/components/footer/Footer'
 import Testimonial from '@/components/testimonials/Testimonials'
 import Links from '@/components/links/Links'
 import data from '../../data/data.json'
@@ -42,9 +42,9 @@ function Products(){
   }, []);
     return (
         <div className="mt-16 mb-40">
-        <div className="flex justify-center flex-col-reverse gap-[7rem] items-center">
+        <div className="flex justify-center flex-col-reverse gap-[7rem] items-center xl:px-[160px]">
             {data.filter(data => data.category === "headphones").map((data,index) => (
-                <div key={index}>
+                <div key={index} className='xl:flex xl:gap-[125px]' style={data.id % 2 == 0 ? {flexDirection:'row'} : {flexDirection:'row-reverse'}}>
                     <div className='flex justify-center items-center'>
                     { width < breakPoint ?
                     <Image src={data.image.mobile} 
@@ -59,15 +59,21 @@ function Products(){
                     width={650}
                     height={352}
                     priority={true}
-                    className='rounded-lg w-auto h-auto'/> : null}
+                    className='rounded-lg w-auto h-auto'/> : 
+                    <Image src={data.categoryImage.desktop} 
+                    alt='img'
+                    width={540}
+                    height={560}
+                    priority={true}
+                    className='rounded-lg w-auto h-auto'/>}
                     </div>
-                 <div className="flex justify-center items-center flex-col mt-10">
+                 <div className="flex justify-center items-center flex-col mt-10 xl:items-start xl:w-[445px]">
                     <h1>{data.new ? <p className="tracking-[0.8rem] text-caramel text-sm">NEW PRODUCT</p> : null}</h1>
                     <h1 className="text-4xl tracking-wider mt-8 font-medium text-center uppercase 
-                    md:font-bold md:text-[40px] md:px-44 md:leading-[45px]">
+                    md:font-bold md:text-[40px] md:px-44 md:leading-[45px] xl:text-left xl:px-0">
                     {data.name}
                     </h1>
-                   <p className="mt-8 opacity-60 text-center px-3 md:px-20">{data.description}</p>
+                   <p className="mt-8 opacity-60 text-center px-3 md:px-20 xl:text-left xl:px-0">{data.description}</p>
                    <Link key={data.id} href={`${data.slug}`}>
                     <button className='bg-caramel mt-6 w-44 h-14 text-white tracking-wide text-center hover:bg-tangerine transition ease-in-out'>
                 SEE PRODUCT
@@ -80,4 +86,3 @@ function Products(){
     </div>
     )
 }
-{/*category/${data.category}/${data.slug} */}
