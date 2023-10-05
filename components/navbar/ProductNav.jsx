@@ -74,12 +74,12 @@ export default function ProductNav() {
       )
     } else {
       return (
-        <div className='w-full h-24 border-b border-white border-opacity-10 bg-black'>
+        <div className='w-full h-24 bg-black border-b border-white border-opacity-10'>
           <div className='flex justify-between items-center px-[160px] pt-9'>
           <Link href='/'>
           <Image src={Logo} alt='logo'/>
           </Link>
-          <div className='flex text-white gap-6 text-[13px] font-semibold'>
+          <div className='flex text-white gap-6 text-[13px] font-semibold -ml-20'>
             <Link href='/'>
               HOME
             </Link>

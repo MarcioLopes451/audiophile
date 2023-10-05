@@ -1,7 +1,7 @@
 'use client'
 import React, {useState, useEffect} from 'react'
 import ProductNav from '@/components/navbar/ProductNav'
-import MobileFooter from '@/components/footer/Footer'
+import Footer from '@/components/footer/Footer'
 import Testimonial from '@/components/testimonials/Testimonials'
 import Links from '@/components/links/Links'
 import data from '../../data/data.json'
@@ -18,7 +18,7 @@ export default function Speakers() {
     <Products />
     <Links />
     <Testimonial />
-    <MobileFooter />
+    <Footer />
     </>
   )
 }

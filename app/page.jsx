@@ -15,7 +15,7 @@ import Image from 'next/image'
 import Navbar from '@/components/navbar/Navbar'
 import Link from 'next/link';
 import Links from '@/components/links/Links'
-import MobileFooter from '@/components/footer/Footer';
+import Footer from '@/components/footer/Footer';
 import Testimonial from '@/components/testimonials/Testimonials';
 
 
@@ -113,7 +113,7 @@ export default function Home() {
       <Testimonial />
       </div>
      </div>
-     <MobileFooter />
+     <Footer />
     </main>
   )
 }
