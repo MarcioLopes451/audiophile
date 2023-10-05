@@ -18,7 +18,7 @@ export default function RootLayout({children}) {
     <html lang="en">
     <body>
       <ShopContextProvider>
-      <main className={manrope.className}>
+      <main className={manrope.className} style={{overflow:'hidden'}}>
           {children}
         </main>
       </ShopContextProvider>
