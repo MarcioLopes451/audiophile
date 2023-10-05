@@ -25,6 +25,60 @@ const slideRight = {
   }
 }
 
+const slideRight1 = {
+  hidden: {
+      x:'-100px',
+      opacity: 0
+  },
+  visible:{
+      x:'0vh',
+      opacity:1,
+      transition:{
+          duration:2
+      }
+  }
+}
+
+const slideIn = {
+  hidden: {
+      y:'-50px',
+      opacity: 0
+  },
+  visible:{
+      y:'0vh',
+      opacity:1,
+      transition:{
+          duration:3
+      }
+  }
+}
+
+const slideIn1 = {
+  hidden: {
+      opacity: 0
+  },
+  visible:{
+      opacity:1,
+      transition:{
+          duration:3
+      }
+  }
+}
+
+const slideIn2 = {
+  hidden: {
+    x:'100px',
+      opacity: 0
+  },
+  visible:{
+    x:'0vh',
+      opacity:1,
+      transition:{
+          duration:3
+      }
+  }
+}
+
 export default function ProductPage() {
     const {slug} = useParams();
     const productData = data.find(data => data.slug === slug);
@@ -101,7 +155,12 @@ export default function ProductPage() {
             </div>
             </motion.div>
 
-          <div className='mt-10 px-5'>
+          <motion.div 
+          variants={slideIn1}
+          initial='hidden'
+          whileInView='visible'
+          exit='hidden'
+          className='mt-10 px-5'>
             <div className='flex flex-col justify-center gap-6 xl:flex-row xl:gap-[350px]'>
               <div>
               <h2 className="text-3xl font-bold">FEATURES</h2>
@@ -122,11 +181,21 @@ export default function ProductPage() {
           ))}</div>
           </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="mt-40">
-          <div className="flex justify-center items-center flex-col gap-9 md:flex-row">
-            <div className='flex flex-col gap-9'>
+          <motion.div 
+          variants={slideIn2}
+            initial='hidden'
+            whileInView='visible'
+            exit='hidden' 
+            className="flex justify-center items-center flex-col gap-9 md:flex-row">
+            <motion.div 
+            variants={slideRight1}
+            initial='hidden'
+            whileInView='visible'
+            exit='hidden'
+            className='flex flex-col gap-9'>
             <Image src={productData.gallery.first.mobile}
             width={350} 
             height={400}
@@ -141,7 +210,7 @@ export default function ProductPage() {
             alt="" 
             className="rounded-lg w-auto h-auto md:w-[277px] md:h-[174px] xl:w-[592px] xl:h-[300px]"
             />
-            </div>
+            </motion.div>
             {width < breakPoint ? 
             <Image src={productData.gallery.third.mobile}
             width={350} 
@@ -162,10 +231,14 @@ export default function ProductPage() {
             priority={true}
             alt="" 
             className=" rounded-lg h-[640px]" />}
-          </div>
+          </motion.div>
           </div>
 
-          <div className="mt-10">
+          <motion.div
+          variants={slideIn}
+          initial='hidden'
+          whileInView='visible'
+          className="mt-10">
           <h2 className="text-3xl font-bold text-center">YOU MAY ALSO LIKE</h2>
           <div className="flex justify-center items-center gap-9 mt-6 flex-col md:flex-row md:gap-3">
             {productData.others.map((data,id) => (
@@ -203,7 +276,7 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
         <Links />
         <Testimonial />
         <Footer />

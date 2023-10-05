@@ -64,7 +64,10 @@ function Products(){
         className="mt-16 mb-40">
         <div className="flex justify-center flex-col-reverse gap-[7rem] items-center xl:px-[160px]">
             {data.filter(data => data.category === "headphones").map((data,index) => (
-                <div key={index} className='xl:flex xl:gap-[125px]' style={data.id % 2 == 0 ? {flexDirection:'row'} : {flexDirection:'row-reverse'}}>
+                <div
+                key={index} 
+                className='xl:flex xl:gap-[125px]' 
+                style={data.id % 2 == 0 ? {flexDirection:'row'} : {flexDirection:'row-reverse'}}>
                     <div className='flex justify-center items-center'>
                     { width < breakPoint ?
                     <Image src={data.image.mobile} 
