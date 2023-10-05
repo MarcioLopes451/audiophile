@@ -1,6 +1,6 @@
 'use client'
 import React, {useContext, useState, useEffect} from 'react'
-import { useParams } from 'next/navigation';
+import { useParams,useRouter } from 'next/navigation';
 import Link from 'next/link';
 import data from '../../data/data.json';
 import ProductNav from '@/components/navbar/ProductNav';
@@ -14,7 +14,7 @@ export default function ProductPage() {
     const {slug} = useParams();
     const productData = data.find(data => data.slug === slug);
     if (!productData) throw new Error(`404: product not found: ${slug}`)
-    //const navigate = useNavigate();
+    const navigate = useRouter();
     const {addToCart, cartItems,removeFromCart} = useContext(ShopContext);
     const quantity = cartItems[productData.id];
     const lines = productData.features.match(/[^\r\n]+/g);
@@ -40,6 +40,7 @@ export default function ProductPage() {
     <>
         <ProductNav />
         <div className='mt-10'>
+        <button onClick={() => navigate.back()} className="my-10 px-[25px] opacity-60 xl:px-[150px]">Go Back</button>
             <div className='flex justify-center items-center flex-col md:flex-row md:px-[20px] md:gap-[69px] xl:px-0'>
             { width < breakPoint ? 
             <Image src={productData.image.mobile} alt='data image' 
