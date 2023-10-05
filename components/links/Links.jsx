@@ -4,6 +4,19 @@ import EarphoneThumbnail from '../../public/shared/desktop/image-category-thumbn
 import Arrow from '../../public/shared/desktop/icon-arrow-right.svg';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const slideIn1 = {
+  hidden: {
+      opacity: 0
+  },
+  visible:{
+      opacity:1,
+      transition:{
+          duration:1
+      }
+  }
+}
 
 const links = [
     {
@@ -25,7 +38,12 @@ const links = [
 
 export default function Links(){
     return (
-      <div className='mt-40'>
+      <motion.div 
+      variants={slideIn1}
+      initial='hidden'
+      whileInView='visible'
+      exit='hidden' 
+      className='mt-40'>
         <div className='flex justify-center items-center flex-col gap-20 md:flex-row md:gap-2 xl:gap-[30px]'>
         {links.map((data,key) => (
           <div key={key}>
@@ -42,7 +60,7 @@ export default function Links(){
             </div>
         ))}
       </div>
-      </div>
+      </motion.div>
     )
   }
   

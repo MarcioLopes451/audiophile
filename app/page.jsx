@@ -33,6 +33,33 @@ const slideIn = {
   }
 }
 
+const slideIn1 = {
+  hidden: {
+    x:'100px',
+      opacity: 0
+  },
+  visible:{
+    x:'0vh',
+      opacity:1,
+      transition:{
+          duration:2
+      }
+  }
+}
+
+const slideIn2 = {
+  hidden: {
+    x:'-100px',
+      opacity: 0
+  },
+  visible:{
+    x:'0vh',
+      opacity:1,
+      transition:{
+          duration:2
+      }
+  }
+}
 
 export default function Home() {
   const [width, setWidth] = useState(0)
@@ -82,7 +109,11 @@ export default function Home() {
      <Links />
 
      <div className='mt-10'>
-      <div className='flex flex-col justify-center items-center gap-10'>
+      <motion.div 
+      variants={slideIn1}
+        initial='hidden'
+        whileInView='visible'
+        exit='hidden' className='flex flex-col justify-center items-center gap-10'>
         <div className='bg-caramel w-80 flex justify-center items-center flex-col rounded-lg relative md:w-[689px] 
         xl:w-[1110px] xl:flex-row xl:gap-20'>
          <Image src={ImageSpeaker} alt='speakers' className='w-44 mt-14 xl:w-[500px] px-6'/>
@@ -100,7 +131,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='relative'>
+        <motion.div 
+        variants={slideIn2}
+        initial='hidden'
+        whileInView='visible'
+        exit='hidden' 
+        className='relative'>
         {width < breakPoint ? <Image src={ImageSpeaker2} alt='speakers2' className='w-80 rounded-lg'/> :
          width >= breakPoint && width < large ? <Image src={TabletImageSpeaker2} alt='speakers' className='rounded-lg'/> : 
          <Image src={desktopImageSpeaker2} alt='speakers' className='rounded-lg'/>}
@@ -112,9 +148,13 @@ export default function Home() {
             </button>
           </Link>
         </div>
-      </div>
+      </motion.div>
 
-      <div className='md:flex gap-3 items-center justify-center xl:gap-7'>
+      <motion.div 
+      variants={slideIn1}
+        initial='hidden'
+        whileInView='visible'
+        exit='hidden' className='md:flex gap-3 items-center justify-center xl:gap-7'>
         {width < breakPoint ?<Image src={Earphones} alt='earphones' className='w-80 rounded-lg'/> :
         width >= breakPoint && width < large ? <Image src={TabletEarphones} alt='earphones' className='rounded-lg w-[339px]'/> :
         <Image src={desktopEarphones} alt='earphones' className='rounded-lg'/> }
@@ -128,9 +168,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Testimonial />
-      </div>
+      </motion.div>
      </div>
      <Footer />
     </main>

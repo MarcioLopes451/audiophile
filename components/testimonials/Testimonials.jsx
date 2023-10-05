@@ -1,9 +1,24 @@
 'use client'
-import React, {useState, useEffect} from 'react'
-import Image from 'next/image'
+import React, {useState, useEffect} from 'react';
+import Image from 'next/image';
 import Testimonials from '../../public/shared/mobile/image-best-gear.jpg';
 import TabletTestimonials from '../../public/shared/tablet/image-best-gear.jpg';
 import DesktopTestimonials from '../../public/shared/desktop/image-best-gear.jpg';
+import { motion } from 'framer-motion';
+
+const slideIn2 = {
+  hidden: {
+    x:'-100px',
+      opacity: 0
+  },
+  visible:{
+    x:'0vh',
+      opacity:1,
+      transition:{
+          duration:2
+      }
+  }
+}
 
 export default function Testimonial() {
   const [width, setWidth] = useState(0)
@@ -24,7 +39,11 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <div className='mt-10'>
+    <motion.div 
+    variants={slideIn2}
+    initial='hidden'
+    whileInView='visible'
+    exit='hidden' className='mt-10'>
         <div className='flex justify-center items-center flex-col gap-5 xl:flex-row-reverse'>
           {width < breakPoint ? <Image src={Testimonials} alt='testimonials' className='w-80 rounded-lg'/> :
            width >= breakPoint && width < large ? <Image src={TabletTestimonials} alt='testimonials' className='rounded-lg w-[690px]'/> :
@@ -41,6 +60,6 @@ export default function Testimonial() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
   )
 }

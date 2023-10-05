@@ -57,8 +57,9 @@ export default function ProductPage() {
         <motion.div 
         variants={slideRight}
         initial='hidden'
-        animate='visible' className='mt-10'>
-        <button onClick={() => navigate.back()} className="my-10 px-[25px] opacity-60 xl:px-[150px]">Go Back</button>
+        animate='visible' 
+        className='mt-10'>
+        <button onClick={() => navigate.back()} className="my-10 px-[25px] opacity-60 xl:px-[150px] hover:text-caramel duration-200">Go Back</button>
             <div className='flex justify-center items-center flex-col md:flex-row md:px-[20px] md:gap-[69px] xl:px-0'>
             { width < breakPoint ? 
             <Image src={productData.image.mobile} alt='data image' 

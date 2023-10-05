@@ -60,7 +60,8 @@ function Products(){
         <motion.div 
         variants={slideRight}
         initial='hidden'
-        animate='visible' className="mt-16 mb-40">
+        animate='visible' 
+        className="mt-16 mb-40">
         <div className="flex justify-center flex-col-reverse gap-[7rem] items-center">
             {data.filter(data => data.category === "speakers").map((data,index) => (
                 <div key={index} className='xl:flex xl:gap-[125px]' style={data.id % 2 == 0 ? {flexDirection:'row'} : {flexDirection:'row-reverse'}}>
