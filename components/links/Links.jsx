@@ -26,12 +26,13 @@ const links = [
 export default function Links(){
     return (
       <div className='mt-40'>
-        <div className='flex justify-center items-center flex-col gap-20 md:flex-row md:gap-2'>
+        <div className='flex justify-center items-center flex-col gap-20 md:flex-row md:gap-2 xl:gap-[30px]'>
         {links.map((data,key) => (
           <div key={key}>
-              <div className='bg-seasalt w-80 h-48 rounded-lg text-center relative md:w-[223px] md:h-[165px]'>
-                <Image src={data.image} className='w-40 h-40 absolute -top-16 left-20 md:left-8' alt=''/>
-                <h4 className='pt-20 font-manrope font-medium text-lg tracking-wider'>{data.name}</h4>
+              <div className='bg-seasalt w-80 h-48 rounded-lg text-center relative 
+              md:w-[223px] md:h-[165px] xl:w-[350px] xl:h-[204px]'>
+                <Image src={data.image} className='w-40 h-40 absolute -top-16 left-20 md:left-8 xl:left-24' alt=''/>
+                <h4 className='pt-20 font-semibold text-lg tracking-wider'>{data.name}</h4>
                 <Link href={data.link} 
                 className='opacity-50 text-sm flex items-center justify-center gap-2 pt-4'>
                   <p className='hover:text-caramel transition ease-in-out'>SHOP</p> 
