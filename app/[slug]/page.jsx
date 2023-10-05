@@ -40,7 +40,7 @@ export default function ProductPage() {
     <>
         <ProductNav />
         <div className='mt-10'>
-            <div className='flex justify-center items-center flex-col md:flex-row md:px-[20px] md:gap-[69px]'>
+            <div className='flex justify-center items-center flex-col md:flex-row md:px-[20px] md:gap-[69px] xl:px-0'>
             { width < breakPoint ? 
             <Image src={productData.image.mobile} alt='data image' 
             width={350} 
@@ -52,9 +52,14 @@ export default function ProductPage() {
             width={350} 
             height={400}
             priority={true}
-            className='rounded-lg w-auto h-auto'/> : null}
+            className='rounded-lg w-auto h-auto'/> : 
+            <Image src={productData.image.desktop} alt='data image' 
+            width={540} 
+            height={560}
+            priority={true}
+            className='rounded-lg w-auto h-auto'/>}
             <div className='mt-5 px-5'>
-              <div className='flex flex-col'>
+              <div className='flex flex-col xl:w-[500px]'>
                 <h1>{productData.new ? <p className="tracking-[0.8rem] text-caramel text-sm">NEW PRODUCT</p> : null}</h1>
                 <h1 className='text-3xl font-semibold mt-6 uppercase'>{productData.name}</h1>
                 <p className='mt-6 opacity-50 text-[15px] leading-7'>{productData.description}</p>
@@ -73,21 +78,21 @@ export default function ProductPage() {
                 </div>
               </div>
             </div>
+            </div>
+            </div>
 
-           
-            </div>
-            </div>
           <div className='mt-10 px-5'>
-            <div className='flex flex-col justify-center gap-6'>
+            <div className='flex flex-col justify-center gap-6 xl:flex-row xl:gap-[350px]'>
               <div>
-                <h2 className="text-3xl font-bold">FEATURES</h2>
+              <h2 className="text-3xl font-bold">FEATURES</h2>
                 {lines.map((p, i) => (
-                <p className="opacity-60 mt-8" key={i}>
+                <p className="opacity-60 mt-8 xl:w-[600px]" key={i}>
                   {p}
                 </p> ))}
-                <div className='mt-20 flex items-start flex-col md:flex-row md:justify-between'>
+              </div>
+                <div className='mt-20 flex items-start flex-col md:flex-row md:justify-between xl:flex-col xl:mt-0 xl:justify-normal'>
           <h2 className="text-2xl font-bold">IN THE BOX</h2>
-          <div className='flex flex-col gap-3 mt-5 md:mt-0'>{productData.includes.map((data,id) => (
+          <div className='flex flex-col gap-3 mt-5 md:mt-0 xl:mt-10'>{productData.includes.map((data,id) => (
             <div key={id}>
               <li className="list-none flex gap-3">
                 <span className="text-caramel">{data.quantity}x</span>
@@ -96,7 +101,6 @@ export default function ProductPage() {
             </div>
           ))}</div>
           </div>
-              </div>
             </div>
           </div>
 
@@ -108,14 +112,14 @@ export default function ProductPage() {
             height={400}
             priority={true}
             alt="" 
-            className="rounded-lg w-auto h-auto md:w-[277px] md:h-[174px]"
+            className="rounded-lg w-auto h-auto md:w-[277px] md:h-[174px] xl:w-[592px] xl:h-[300px]"
             /> 
             <Image src={productData.gallery.second.mobile}
             width={350} 
             height={400}
             priority={true} 
             alt="" 
-            className="rounded-lg w-auto h-auto md:w-[277px] md:h-[174px]"
+            className="rounded-lg w-auto h-auto md:w-[277px] md:h-[174px] xl:w-[592px] xl:h-[300px]"
             />
             </div>
             {width < breakPoint ? 
@@ -131,7 +135,13 @@ export default function ProductPage() {
             height={400}
             priority={true}
             alt="" 
-            className=" rounded-lg w-[410px] h-auto" /> : null}
+            className=" rounded-lg w-[410px] h-auto" /> :
+             <Image src={productData.gallery.third.desktop}
+            width={635} 
+            height={600}
+            priority={true}
+            alt="" 
+            className=" rounded-lg h-[640px]" />}
           </div>
           </div>
 
@@ -154,7 +164,13 @@ export default function ProductPage() {
                   height={400}
                   priority={true}
                   alt="" 
-                  className=" rounded-lg w-auto h-auto"/> : null}
+                  className=" rounded-lg w-auto h-auto"/> : 
+                  <Image src={data.image.desktop} 
+                  width={350} 
+                  height={318}
+                  priority={true}
+                  alt="" 
+                  className=" rounded-lg w-auto h-auto"/>}
                 </div>
                 <div className="text-center">
                 <h3 className="font-semibold text-2xl mt-9">{data.name}</h3>
