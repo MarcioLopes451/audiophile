@@ -11,12 +11,27 @@ import TabletImageSpeaker2 from '../public/home/tablet/image-speaker-zx7.jpg';
 import Earphones from '../public/home/mobile/image-earphones-yx1.jpg';
 import desktopEarphones from '../public/home/desktop/image-earphones-yx1.jpg';
 import TabletEarphones from '../public/home/tablet/image-earphones-yx1.jpg';
-import Image from 'next/image'
-import Navbar from '@/components/navbar/Navbar'
+import Image from 'next/image';
+import Navbar from '@/components/navbar/Navbar';
 import Link from 'next/link';
-import Links from '@/components/links/Links'
+import Links from '@/components/links/Links';
 import Footer from '@/components/footer/Footer';
 import Testimonial from '@/components/testimonials/Testimonials';
+import { motion } from 'framer-motion';
+
+const slideIn = {
+  hidden: {
+      y:'-50px',
+      opacity: 0
+  },
+  visible:{
+      y:'0vh',
+      opacity:1,
+      transition:{
+          duration:0.3
+      }
+  }
+}
 
 
 export default function Home() {
@@ -39,7 +54,11 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      <div className='relative w-full'>
+      <motion.div 
+      variants={slideIn}
+      initial='hidden'
+      animate='visible' 
+      className='relative w-full'>
         { width < breakPoint ? <Image src={MobileHero} alt='mobile hero'/> : 
          width >= breakPoint && width < large ? <Image src={TabletHero} alt='tablet hero' /> : 
          <Image src={Hero} alt='hero'/>}
@@ -58,15 +77,15 @@ export default function Home() {
             </button>
             </Link>
         </div>
-     </div>
+     </motion.div>
 
      <Links />
 
      <div className='mt-10'>
       <div className='flex flex-col justify-center items-center gap-10'>
         <div className='bg-caramel w-80 flex justify-center items-center flex-col rounded-lg relative md:w-[689px] 
-        xl:w-[1110px] xl:flex-row xl:gap-40'>
-         <Image src={ImageSpeaker} alt='speakers' className='w-44 mt-14 xl:w-auto px-6'/>
+        xl:w-[1110px] xl:flex-row xl:gap-20'>
+         <Image src={ImageSpeaker} alt='speakers' className='w-44 mt-14 xl:w-[500px] px-6'/>
           {/*<Image src={Circles} alt='circles' className='absolute top-0'/>*/}
           <div className='text-center my-10 xl:text-left'>
             <h1 className='text-white text-5xl tracking-wider font-semibold md:text-[56px] md:px-44 xl:px-0'>ZX9 SPEAKER</h1>

@@ -1,5 +1,5 @@
 'use client'
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useState, useEffect} from 'react';
 import { useParams,useRouter } from 'next/navigation';
 import Link from 'next/link';
 import data from '../../data/data.json';
@@ -9,6 +9,21 @@ import Links from '@/components/links/Links'
 import Footer from '@/components/footer/Footer';
 import { ShopContext } from '@/context/ShopContext';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const slideRight = {
+  hidden: {
+      x:'-100px',
+      opacity: 0
+  },
+  visible:{
+      x:'0vh',
+      opacity:1,
+      transition:{
+          duration:0.5
+      }
+  }
+}
 
 export default function ProductPage() {
     const {slug} = useParams();
@@ -39,7 +54,10 @@ export default function ProductPage() {
   return (
     <>
         <ProductNav />
-        <div className='mt-10'>
+        <motion.div 
+        variants={slideRight}
+        initial='hidden'
+        animate='visible' className='mt-10'>
         <button onClick={() => navigate.back()} className="my-10 px-[25px] opacity-60 xl:px-[150px]">Go Back</button>
             <div className='flex justify-center items-center flex-col md:flex-row md:px-[20px] md:gap-[69px] xl:px-0'>
             { width < breakPoint ? 
@@ -80,7 +98,7 @@ export default function ProductPage() {
               </div>
             </div>
             </div>
-            </div>
+            </motion.div>
 
           <div className='mt-10 px-5'>
             <div className='flex flex-col justify-center gap-6 xl:flex-row xl:gap-[350px]'>

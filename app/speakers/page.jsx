@@ -1,12 +1,13 @@
 'use client'
-import React, {useState, useEffect} from 'react'
-import ProductNav from '@/components/navbar/ProductNav'
-import Footer from '@/components/footer/Footer'
-import Testimonial from '@/components/testimonials/Testimonials'
-import Links from '@/components/links/Links'
-import data from '../../data/data.json'
-import Image from 'next/image'
-import Link from 'next/link'
+import React, {useState, useEffect} from 'react';
+import ProductNav from '@/components/navbar/ProductNav';
+import Footer from '@/components/footer/Footer';
+import Testimonial from '@/components/testimonials/Testimonials';
+import Links from '@/components/links/Links';
+import data from '../../data/data.json';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Speakers() {
   return (
@@ -21,6 +22,20 @@ export default function Speakers() {
     <Footer />
     </>
   )
+}
+
+const slideRight = {
+  hidden: {
+      x:'100px',
+      opacity: 0
+  },
+  visible:{
+      x:'0vh',
+      opacity:1,
+      transition:{
+          duration:0.5
+      }
+  }
 }
 
 function Products(){
@@ -42,7 +57,10 @@ function Products(){
   }, []);
 
     return (
-        <div className="mt-16 mb-40">
+        <motion.div 
+        variants={slideRight}
+        initial='hidden'
+        animate='visible' className="mt-16 mb-40">
         <div className="flex justify-center flex-col-reverse gap-[7rem] items-center">
             {data.filter(data => data.category === "speakers").map((data,index) => (
                 <div key={index} className='xl:flex xl:gap-[125px]' style={data.id % 2 == 0 ? {flexDirection:'row'} : {flexDirection:'row-reverse'}}>
@@ -84,6 +102,6 @@ function Products(){
                 </div>
             ))}
         </div>
-    </div>
+    </motion.div>
     )
 }

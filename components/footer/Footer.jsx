@@ -13,10 +13,10 @@ export default function Footer() {
             <div className='xl:flex xl:gap-[580px] xl:px-[100px] xl:pt-10'>
             <Image src={Logo} alt='logo' className='pt-10 xl:pt-0'/>
             <div className='flex justify-center items-center flex-col gap-5 mt-5 text-white font-semibold md:flex-row xl:mt-0'>
-                <Link href='/'>HOME</Link>
-                <Link href='/headphones'>HEADPHONES</Link>
-                <Link href='/speakers'>SPEAKERS</Link>
-                <Link href='/earphones'>EARPHONES</Link>
+                <Link href='/' className='hover:text-caramel duration-300'>HOME</Link>
+                <Link href='/headphones' className='hover:text-caramel duration-300'>HEADPHONES</Link>
+                <Link href='/speakers' className='hover:text-caramel duration-300'>SPEAKERS</Link>
+                <Link href='/earphones' className='hover:text-caramel duration-300'>EARPHONES</Link>
             </div>
             </div>
             <div className='flex justify-center items-center flex-col gap-5 mt-5 text-white font-semibold md:items-start xl:px-[100px]'>

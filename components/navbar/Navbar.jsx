@@ -8,6 +8,21 @@ import Mobile from '../../public/shared/tablet/icon-hamburger.svg';
 import MobileNav from './MobileNav';
 import Backdrop from '../backdrop/Backdrop';
 import ShoppingCart from '../cart/ShoppingCart';
+import { motion } from 'framer-motion';
+
+const slideIn = {
+  hidden: {
+      y:'-100px',
+      opacity: 0
+  },
+  visible:{
+      y:'0vh',
+      opacity:1,
+      transition:{
+          duration:1
+      }
+  }
+}
 
 export default function Navbar() {
   const [state, setState] = useState(false);
@@ -40,7 +55,10 @@ export default function Navbar() {
   function changeNavbar(){
     if(width < breakPoint){
       return (
-        <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
+        <motion.div 
+        variants={slideIn}
+        initial='hidden'
+        animate='visible' className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
         <div className='flex items-center pt-9 justify-evenly gap-10'>
           <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
           <Link href='/'>
@@ -52,11 +70,14 @@ export default function Navbar() {
         {state && <Backdrop isOpen={state} onClose={handleClick}/>}
         {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1}/>}
         {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
-    </div>
+    </motion.div>
       )
     } else if(width >= breakPoint && width < large){
       return (
-        <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
+        <motion.div variants={slideIn}
+        initial='hidden'
+        animate='visible'
+         className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
           <div className='flex justify-between items-center px-[39px] pt-9'>
             <div className='flex items-center gap-11'>
           <Image src={Mobile} alt='mobile nav' onClick={handleClick}/>
@@ -70,26 +91,30 @@ export default function Navbar() {
           {state && <Backdrop isOpen={state} onClose={handleClick}/>}
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1}/>}
           {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
-        </div>
+        </motion.div>
       )
     } else {
       return (
-        <div className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
+        <motion.div
+        variants={slideIn}
+        initial='hidden'
+        animate='visible' 
+        className='w-full h-24 absolute top-0 left-0 z-10 border-b border-white border-opacity-10'>
           <div className='flex justify-between items-center px-[160px] pt-9'>
           <Link href='/'>
           <Image src={Logo} alt='logo'/>
           </Link>
-          <div className='flex text-white gap-6 text-[13px] font-semibold'>
-            <Link href='/'>
+          <div className='flex gap-6 text-[13px] font-semibold text-white'>
+            <Link href='/' className='hover:text-caramel duration-300'>
               HOME
             </Link>
-            <Link href='/headphones'>
+            <Link href='/headphones' className='hover:text-caramel duration-300'>
               HEADPHONES
             </Link>
-            <Link href='/speakers'>
+            <Link href='/speakers' className='hover:text-caramel duration-300'>
               SPEAKERS
             </Link>
-            <Link href='/earphones'>
+            <Link href='/earphones' className='hover:text-caramel duration-300'>
               EARPHONES
             </Link>
           </div>
@@ -97,7 +122,7 @@ export default function Navbar() {
           </div>
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1}/>}
           {state1 && <Backdrop isOpen={state1} onClose={handleClick1}/>}
-        </div>
+        </motion.div>
 
       )
     }
