@@ -109,7 +109,12 @@ export default function Home() {
             made for the passionate music enthusiast.
           </p>
           <Link href="/xx99-mark-two-headphones">
-            <button className="bg-caramel mt-7 w-40 h-12 text-white tracking-wide text-center hover:bg-tangerine transition ease-in-out">
+            <button
+              className="bg-caramel mt-7 w-40 h-12 text-white tracking-wide text-center hover:bg-tangerine transition ease-in-out"
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+            >
               SEE PRODUCT
             </button>
           </Link>

@@ -7,6 +7,7 @@ import Cart from "../../public/shared/desktop/icon-cart.svg";
 import Mobile from "../../public/shared/tablet/icon-hamburger.svg";
 import MobileNav from "./MobileNav";
 import Backdrop from "../backdrop/Backdrop";
+import CartBackdrop from "../backdrop/CartBackdrop";
 import ShoppingCart from "../cart/ShoppingCart";
 import { motion } from "framer-motion";
 import { ShopContext } from "@/context/ShopContext";
@@ -82,7 +83,7 @@ export default function ProductNav() {
           {state && <MobileNav isOpen={state} onClose={handleClick} />}
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
-          {state1 && <Backdrop isOpen={state1} onClose={handleClick1} />}
+          {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
         </motion.div>
       );
     } else if (width >= breakPoint && width < large) {
@@ -114,7 +115,7 @@ export default function ProductNav() {
           {state && <MobileNav isOpen={state} onClose={handleClick} />}
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
-          {state1 && <Backdrop isOpen={state1} onClose={handleClick1} />}
+          {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
         </motion.div>
       );
     } else {
@@ -164,7 +165,7 @@ export default function ProductNav() {
             )}
           </div>
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
-          {state1 && <Backdrop isOpen={state1} onClose={handleClick1} />}
+          {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
         </motion.div>
       );
     }
