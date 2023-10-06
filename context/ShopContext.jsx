@@ -2,6 +2,7 @@
 import { createContext, useState } from "react";
 import products from "../data/data.json";
 import PropTypes from "prop-types";
+import { useLocalStorage } from "react-use";
 
 export const ShopContext = createContext();
 
@@ -14,7 +15,7 @@ const getDefaultCart = () => {
 };
 
 export const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart([]));
+  const [cartItems, setCartItems] = useState(getDefaultCart());
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -36,7 +37,11 @@ export const ShopContextProvider = (props) => {
   };
 
   const clearCart = () => {
-    setCartItems([]);
+    setCartItems(getDefaultCart());
+  };
+
+  const cartQty = () => {
+    Object.values(cartItems).reduce((a, b) => a + b);
   };
 
   const contextValue = {
@@ -46,7 +51,9 @@ export const ShopContextProvider = (props) => {
     totalCart,
     setCartItems,
     clearCart,
+    cartQty,
   };
+
   return (
     <ShopContext.Provider value={contextValue}>
       {props.children}

@@ -6,14 +6,7 @@ import CartItem from "./CartItem";
 import data from "@/data/data.json";
 
 export default function ShoppingCart({ onClose }) {
-  const { cartItems, totalCart, clearCart } = useContext(ShopContext);
-
-  const [state, setState] = useState([]);
-
-  const clear = () => {
-    setState([]);
-  };
-
+  const { cartItems, totalCart, clearCart, cartQty } = useContext(ShopContext);
   const tot = totalCart();
 
   return (
@@ -37,14 +30,17 @@ export default function ShoppingCart({ onClose }) {
           <p className="font-semibold">${tot.toLocaleString()}</p>
         </div>
         <div className="flex justify-center my-7">
-          <Link href="/checkout" onClick={onClose}>
-            <button
-              className="w-[271px] bg-caramel text-white text-center py-2 hover:bg-tangerine transition ease-in-out"
-              disabled
-            >
+          {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
+            <Link href="/checkout" onClick={onClose}>
+              <button className="w-[271px] bg-caramel text-white text-center py-2 hover:bg-tangerine transition ease-in-out">
+                CONTINUE & PAY
+              </button>
+            </Link>
+          ) : (
+            <button className="w-[271px] bg-caramel text-white text-center py-2 hover:bg-tangerine transition ease-in-out">
               CONTINUE & PAY
             </button>
-          </Link>
+          )}
         </div>
       </div>
     </div>
