@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../public/shared/desktop/logo.svg";
@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 import Backdrop from "../backdrop/Backdrop";
 import ShoppingCart from "../cart/ShoppingCart";
 import { motion } from "framer-motion";
-
+import { ShopContext } from "@/context/ShopContext";
 const slideIn = {
   hidden: {
     y: "-100px",
@@ -32,6 +32,7 @@ export default function Navbar() {
   const breakPoint = 768;
   const med = 1024;
   const large = 1440;
+  const { cartItems } = useContext(ShopContext);
 
   const handleWindowResize = () => {
     setWidth(window.innerWidth);
@@ -66,7 +67,16 @@ export default function Navbar() {
             <Link href="/">
               <Image src={Logo} alt="logo" />
             </Link>
-            <Image src={Cart} alt="cart" onClick={handleClick1} />
+            {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
+              <div className="relative">
+                <Image src={Cart} alt="cart" onClick={handleClick1} />
+                <p className="absolute bg-caramel w-6 h-6 rounded-full -top-5 left-3 text-center text-white">
+                  {Object.values(cartItems).reduce((a, b) => a + b)}
+                </p>
+              </div>
+            ) : (
+              <Image src={Cart} alt="cart" onClick={handleClick1} />
+            )}
           </div>
           {state && <MobileNav isOpen={state} onClose={handleClick} />}
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
@@ -89,7 +99,16 @@ export default function Navbar() {
                 <Image src={Logo} alt="logo" />
               </Link>
             </div>
-            <Image src={Cart} alt="cart" onClick={handleClick1} />
+            {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
+              <div className="relative">
+                <Image src={Cart} alt="cart" onClick={handleClick1} />
+                <p className="absolute bg-caramel w-6 h-6 rounded-full -top-5 left-3 text-center text-white">
+                  {Object.values(cartItems).reduce((a, b) => a + b)}
+                </p>
+              </div>
+            ) : (
+              <Image src={Cart} alt="cart" onClick={handleClick1} />
+            )}
           </div>
           {state && <MobileNav isOpen={state} onClose={handleClick} />}
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
@@ -132,7 +151,16 @@ export default function Navbar() {
                 EARPHONES
               </Link>
             </div>
-            <Image src={Cart} alt="cart" onClick={handleClick1} />
+            {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
+              <div className="relative">
+                <Image src={Cart} alt="cart" onClick={handleClick1} />
+                <p className="absolute bg-caramel w-6 h-6 rounded-full -top-5 left-3 text-center text-white">
+                  {Object.values(cartItems).reduce((a, b) => a + b)}
+                </p>
+              </div>
+            ) : (
+              <Image src={Cart} alt="cart" onClick={handleClick1} />
+            )}
           </div>
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
           {state1 && <Backdrop isOpen={state1} onClose={handleClick1} />}
