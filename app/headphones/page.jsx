@@ -12,16 +12,18 @@ import { motion } from "framer-motion";
 export default function Headphones() {
   return (
     <>
-      <div className="bg-black">
-        <ProductNav />
-        <p className="text-white text-2xl text-center py-10 font-semibold">
-          HEADPHONES
-        </p>
+      <div className="relative">
+        <div className="bg-black">
+          <ProductNav />
+          <p className="text-white text-2xl text-center py-10 font-semibold">
+            HEADPHONES
+          </p>
+        </div>
+        <Products />
+        <Links />
+        <Testimonial />
+        <Footer />
       </div>
-      <Products />
-      <Links />
-      <Testimonial />
-      <Footer />
     </>
   );
 }

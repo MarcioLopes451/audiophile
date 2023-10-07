@@ -79,7 +79,7 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   return (
-    <main>
+    <main className="relative">
       <Navbar />
       <motion.div
         variants={slideIn}
@@ -123,14 +123,14 @@ export default function Home() {
 
       <Links />
 
-      <div className="mt-10">
-        <motion.div
-          variants={slideIn1}
-          initial="hidden"
-          whileInView="visible"
-          exit="hidden"
-          className="flex flex-col justify-center items-center gap-10"
-        >
+      <motion.div
+        variants={slideIn1}
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        className="mt-10"
+      >
+        <div className="flex flex-col justify-center items-center gap-10">
           <div
             className="bg-caramel w-80 flex justify-center items-center flex-col rounded-lg relative md:w-[689px] 
         xl:w-[1110px] xl:flex-row xl:gap-20"
@@ -235,8 +235,8 @@ export default function Home() {
             </div>
           </motion.div>
           <Testimonial />
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
       <Footer />
     </main>
   );

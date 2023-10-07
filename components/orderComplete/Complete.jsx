@@ -39,7 +39,10 @@ export default function Complete() {
         </div>
         <div className="text-center my-7 md:text-left">
           <Link href="/">
-            <button className="bg-caramel text-white text-center py-2 w-80 h-10">
+            <button
+              className="bg-caramel text-white text-center py-2 w-80 h-10"
+              onClick="window.location.reload()"
+            >
               BACK TO HOME
             </button>
           </Link>

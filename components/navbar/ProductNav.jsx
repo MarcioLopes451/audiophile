@@ -58,12 +58,7 @@ export default function ProductNav() {
   function changeNavbar() {
     if (width < breakPoint) {
       return (
-        <motion.div
-          variants={slideIn}
-          initial="hidden"
-          animate="visible"
-          className="w-full h-24 border-b border-white border-opacity-10 bg-black"
-        >
+        <div className="w-full h-24 border-b border-white border-opacity-10 bg-black">
           <div className="flex items-center pt-9 justify-evenly gap-10">
             <Image src={Mobile} alt="mobile nav" onClick={handleClick} />
             <Link href="/">
@@ -84,48 +79,40 @@ export default function ProductNav() {
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
           {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
-        </motion.div>
+        </div>
       );
     } else if (width >= breakPoint && width < large) {
       return (
-        <motion.div
-          variants={slideIn}
-          initial="hidden"
-          animate="visible"
-          className="w-full h-24 border-b border-white border-opacity-10 bg-black"
-        >
-          <div className="flex justify-between items-center px-[39px] pt-9">
-            <div className="flex items-center gap-11">
-              <Image src={Mobile} alt="mobile nav" onClick={handleClick} />
-              <Link href="/">
-                <Image src={Logo} alt="logo" />
-              </Link>
-            </div>
-            {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
-              <div className="relative">
-                <Image src={Cart} alt="cart" onClick={handleClick1} />
-                <p className="absolute bg-caramel w-6 h-6 rounded-full -top-5 left-3 text-center text-white">
-                  {Object.values(cartItems).reduce((a, b) => a + b)}
-                </p>
+        <div className="w-full h-full">
+          <div className="w-full h-24 bg-black z-10 border-b border-white border-opacity-10">
+            <div className="flex justify-between items-center px-[39px] pt-9">
+              <div className="flex items-center gap-11">
+                <Image src={Mobile} alt="mobile nav" onClick={handleClick} />
+                <Link href="/">
+                  <Image src={Logo} alt="logo" />
+                </Link>
               </div>
-            ) : (
-              <Image src={Cart} alt="cart" onClick={handleClick1} />
-            )}
+              {Object.values(cartItems).reduce((a, b) => a + b) > 0 ? (
+                <div className="relative">
+                  <Image src={Cart} alt="cart" onClick={handleClick1} />
+                  <p className="absolute bg-caramel w-6 h-6 rounded-full -top-5 left-3 text-center text-white">
+                    {Object.values(cartItems).reduce((a, b) => a + b)}
+                  </p>
+                </div>
+              ) : (
+                <Image src={Cart} alt="cart" onClick={handleClick1} />
+              )}
+            </div>
+            {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
+            {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
           </div>
           {state && <MobileNav isOpen={state} onClose={handleClick} />}
           {state && <Backdrop isOpen={state} onClose={handleClick} />}
-          {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
-          {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
-        </motion.div>
+        </div>
       );
     } else {
       return (
-        <motion.div
-          variants={slideIn}
-          initial="hidden"
-          animate="visible"
-          className="w-full h-24 bg-black border-b border-white border-opacity-10"
-        >
+        <div className="w-full h-24 bg-black border-b border-white border-opacity-10">
           <div className="flex justify-between items-center px-[160px] pt-9">
             <Link href="/">
               <Image src={Logo} alt="logo" />
@@ -166,7 +153,7 @@ export default function ProductNav() {
           </div>
           {state1 && <ShoppingCart isOpen={state1} onClose={handleClick1} />}
           {state1 && <CartBackdrop isOpen={state1} onClose={handleClick1} />}
-        </motion.div>
+        </div>
       );
     }
   }
