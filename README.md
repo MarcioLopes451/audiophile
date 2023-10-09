@@ -7,7 +7,7 @@ Audiophile is a e-commerce website that sells audio devices such as
 
 You can view the app [here](https://audiophile-lake.vercel.app).
 
-## Tools used: -
+## Tools used:
 - NextJs
 - React hooks(useState,useEffect & useContext)
 - TailwindCSS
