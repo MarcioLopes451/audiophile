@@ -41,6 +41,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Product Example Page 👇
 
-![About Us](<./public/screencapture-localhost-3000-2025-01-09-19_28_12.png>)
+![About Us](<./public/screencapture-localhost-3000-headphones-2025-01-09-19_28_12.png>)
 
 
