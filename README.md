@@ -35,5 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Screenshots of the Project 📸
 
+### Home Page 🏡
+
+![homepage](<./public/screencapture-localhost-3000-2025-01-09-19_31_10.png>)
+
+
 
 
