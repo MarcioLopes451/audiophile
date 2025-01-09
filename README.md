@@ -8,7 +8,7 @@ Audiophile is a e-commerce website that sells audio devices such as
  - Speakers
  - Earphones
 
-You can view the app [here](https://audiophile-lake.vercel.app).
+👉 Live Demo: [here](https://audiophile-lake.vercel.app).
 
 ## Tools used:
 - NextJs
@@ -32,4 +32,8 @@ Install dependencies by running npm install in the project directory
 Start the server by running npm run server in the project directory
 Start the client by running npm run client in a new terminal window
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Screenshots of the Project 📸
+
+
 
