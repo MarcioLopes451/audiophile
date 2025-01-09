@@ -39,6 +39,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ![homepage](<./public/screencapture-localhost-3000-2025-01-09-19_31_10.png>)
 
+### Product Example Page 👇
 
+![About Us](<./public/screencapture-localhost-3000-2025-01-09-19_28_12.png>)
 
 
