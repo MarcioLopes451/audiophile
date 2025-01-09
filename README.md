@@ -2,9 +2,6 @@
 	<img src="./public/shared/desktop/logo.svg" width="25%">
 </div>
 
-
-
-<br>
 <br>
 Audiophile is a e-commerce website that sells audio devices such as
  - Headphones
